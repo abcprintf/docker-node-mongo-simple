@@ -1,0 +1,14 @@
+#build
+docker-compose up
+
+#remove container
+docker-compose down
+
+#rebuild
+docker-compose up -d --force-recreate --build
+
+#export
+docker save -o e:\images\docker-node-mongo-simple_app.tar docker-node-mongo-simple_app
+
+#load
+docker load -i e:\temp\xxx.tar
