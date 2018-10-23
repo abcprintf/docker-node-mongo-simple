@@ -3,7 +3,7 @@ html
     include layouts/header.pug
   body
     .container
-        h1= "Users List"
+        h1= "Add User"
 
         form(method='POST' action='/user/add')
             div.form-group
@@ -17,8 +17,19 @@ html
                 input#name.form-control(type='text', placeholder='Nickname' name='nickname')
             button.btn.btn-primary(type='submit') Save
 
-        h4= "Users"
-        ul
-            each user, index in users
-                li= index + ' : ' + user.firstname + ' ' + user.lastname + ' ' + user.nickname
+        h4= "Users List"
+        table.table.table-striped
+            thead
+                tr
+                    th  #
+                    th  firstname
+                    th  lastname
+                    th  nickname
+            tbody
+                each user, index in users
+                    tr
+                        td=  index
+                        td=  user.firstname
+                        td=  user.lastname
+                        td=  user.nickname
     include layouts/footer.pug
