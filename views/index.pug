@@ -1,24 +1,24 @@
 html
   head
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    meta(http-equiv="X-UA-Compatible" content="ie=edge")
-    title= "Users"
+    include layouts/header.pug
   body
-    h1= "Users List"
+    .container
+        h1= "Users List"
 
-    form(method='POST' action='/user/add')
-        div.form-group
-            label(for='name') Firstname:
-            input#name.form-control(type='text', placeholder='Firstname' name='firstname')
-        div.form-group
-            label(for='name') Lastname:
-            input#name.form-control(type='text', placeholder='Lastname' name='lastname')
-        div.form-group
-            label(for='name') Nickname:
-            input#name.form-control(type='text', placeholder='Nickname' name='nickname')
-        button.btn.btn-primary(type='submit') Save
+        form(method='POST' action='/user/add')
+            div.form-group
+                label(for='name') Firstname:
+                input#name.form-control(type='text', placeholder='Firstname' name='firstname')
+            div.form-group
+                label(for='name') Lastname:
+                input#name.form-control(type='text', placeholder='Lastname' name='lastname')
+            div.form-group
+                label(for='name') Nickname:
+                input#name.form-control(type='text', placeholder='Nickname' name='nickname')
+            button.btn.btn-primary(type='submit') Save
 
-    h4= "Users"
-    ul
-        each user, index in users
-            li= index + ' : ' + user.firstname + ' ' + user.lastname + ' ' + user.nickname
+        h4= "Users"
+        ul
+            each user, index in users
+                li= index + ' : ' + user.firstname + ' ' + user.lastname + ' ' + user.nickname
+    include layouts/footer.pug
